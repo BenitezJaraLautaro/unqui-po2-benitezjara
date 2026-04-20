@@ -35,16 +35,4 @@ public class Counter {
 	
 	
 	
-	public int cuantosParHay() {
-		int colector2 = 0;
-		for (int numero: colector) {
-			if (numero % 2 == 0) {
-				colector2 = colector2 + 1;
-			}
-		}
-		return colector2;
-	}
-	
-	
-	
 }
