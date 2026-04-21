@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 class Countertest {
 	
-	 Counter contador2;
+	private Counter contador2;
 
 	@BeforeEach
 	void setUpBeforeClass() throws Exception {
@@ -36,7 +36,8 @@ class Countertest {
 		contador2.addNumber(4);
 		contador2.addNumber(8);
 		contador2.addNumber(7);
-		assertEquals(contador2.cuantosMultiplosDe(7), 1);
+		long n = contador2.cuantosParesHay();
+		assertEquals(n, 3);
 	}
 	
 

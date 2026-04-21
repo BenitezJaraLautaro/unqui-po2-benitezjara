@@ -1,5 +1,6 @@
 package ar.edu.unq.po2.tp3;
 import java.util.ArrayList;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -31,7 +32,7 @@ public class Counter {
 	}
 	
 	public long cuantosImparesHay() {
-		return  this.contarSegun(numero -> numero % 2 != 0);
+		return this.contarSegun(numero -> numero % 2 != 0);
 	}
 	
 	public long contarSegun(Predicate<Integer> condicion) {
