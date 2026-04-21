@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.function.Predicate;
 
 public class Counter {
 	private ArrayList<Integer> colector; 
@@ -26,13 +27,22 @@ public class Counter {
 	}
 	
 	public long cuantosParesHay() {
-		return  colector.stream().filter(numero -> numero % 2 == 0).count();
+		return  this.contarSegun(numero -> numero % 2 == 0);
 	}
 	
 	public long cuantosImparesHay() {
-		return  colector.stream().filter(numero -> numero % 2 != 0).count();
+		return  this.contarSegun(numero -> numero % 2 != 0);
 	}
 	
+	public long contarSegun(Predicate<Integer> condicion) {
+		return colector.stream().filter(condicion).count();
+	}
+	
+	public long cuantosMultiplosDe(Integer n) {
+		return this.contarSegun(numero -> numero % n == 0);
+	}
+	
+
 	
 	
 }
