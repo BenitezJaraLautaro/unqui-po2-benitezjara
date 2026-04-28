@@ -2,15 +2,17 @@ package ar.edu.unq.po2.tp4;
 
 public class ProductoPrimeraNecesidad extends Producto{
 	/*Al querer cambiar el precio con setPrecio(), se debe tener en cuenta que se cambia el precio sin contar el descuento*/
-	private double descuentoAplicado = 0.9;
+	private double descuentoAplicado;
 
-	public ProductoPrimeraNecesidad(String nombre, double precio, boolean esPrecioCuidado) {
+	public ProductoPrimeraNecesidad(String nombre, double precio, boolean esPrecioCuidado, double descuentoAplicado) {
 		super(nombre, precio, esPrecioCuidado);
+		this.setDescuentoAplicado(descuentoAplicado);
 		
 	}
 	
-	public ProductoPrimeraNecesidad(String nombre, double precio) {
+	public ProductoPrimeraNecesidad(String nombre, double precio, double descuentoAplicado) {
 		super(nombre, precio);
+		this.setDescuentoAplicado(descuentoAplicado);
 		
 	}
 	
@@ -28,7 +30,7 @@ public class ProductoPrimeraNecesidad extends Producto{
 	
 	@Override
 	public double getPrecio() {
-		return this.precio * this.getDescuentoAplicado();
+		return this.precio * (1-this.getDescuentoAplicado()/ 100);
 	}
 
 	

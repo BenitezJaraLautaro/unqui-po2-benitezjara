@@ -26,17 +26,28 @@ public class Supermercado {
 	public ArrayList<Producto> getCatalago() {
 		return catalago;
 	}
-	public void setCatalago(ArrayList<Producto> catalago) {
-		this.catalago = catalago;
-	}
-	
+
 	public Supermercado(String nombre, String direccion) {
 		super();
 		this.setNombre(nombre);
 		this.setDireccion(direccion);
-		this.setCatalago(catalago);
 	}
 	
+	public int getCantidadProductos() {
+		return this.getCatalago().size();
+	}
+	
+	public void agregarProducto(Producto producto) {
+		this.getCatalago().add(producto);
+	}
+	
+	public double getPrecioTotal() {
+		double precioTotal = 0;
+		for (Producto p: this.getCatalago()) {
+			precioTotal= precioTotal + p.getPrecio();
+		}
+		return precioTotal;
+	}
 	
 	
 	
