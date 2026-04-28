@@ -16,4 +16,3 @@ public class Ejercicio3 {/*devuelva el número más alto entre 0 y 1000, que sea
 	}
 	
 }
-
