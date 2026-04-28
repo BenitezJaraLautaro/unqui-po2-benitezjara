@@ -66,4 +66,16 @@ public abstract class Empleado {
     public double elPorcientoDe(double porciento, double numero) {
         return (numero * porciento) / 100;
     }
+
+	public Empleado(String nombre, String direccion, String estadoCivil, LocalDate fechaNacimiento,
+			double sueldoBasico) {
+		super();
+		this.nombre = nombre;
+		this.direccion = direccion;
+		this.estadoCivil = estadoCivil;
+		this.fechaNacimiento = fechaNacimiento;
+		this.sueldoBasico = sueldoBasico;
+	}
+    
+    
 }
