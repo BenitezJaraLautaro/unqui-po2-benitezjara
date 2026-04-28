@@ -49,11 +49,11 @@ public abstract class Empleado {
     }
     
     public double obraSocial() {
-        return this.elPorcientoDe(this.porcentajeRetenidoObraSocial, this.sueldoBruto());
+        return this.calcularPorcentaje(this.porcentajeRetenidoObraSocial, this.sueldoBruto());
     }
     
     public double aporteJubilatorios() {
-        return this.elPorcientoDe(
+        return this.calcularPorcentaje(
             this.porcentajeRetenidoAporteJubilatorio(),
             this.sueldoBruto()
         );
@@ -63,7 +63,7 @@ public abstract class Empleado {
         return 15;
     }
 
-    public double elPorcientoDe(double porciento, double numero) {
+    public double calcularPorcentaje(double porciento, double numero) {
         return (numero * porciento) / 100;
     }
 

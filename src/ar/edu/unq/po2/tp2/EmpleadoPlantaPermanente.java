@@ -37,7 +37,6 @@ public class EmpleadoPlantaPermanente extends Empleado {
 	public int getAntiguedad() {
 		return antiguedad;
 	}
-	
 
 	@Override
 	public double sueldoBruto() {
