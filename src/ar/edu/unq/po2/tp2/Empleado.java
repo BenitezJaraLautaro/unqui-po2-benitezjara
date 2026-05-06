@@ -10,7 +10,11 @@ public abstract class Empleado {
 	private LocalDate fechaNacimiento;
 	private double sueldoBasico; 
 	private double porcentajeRetenidoObraSocial = 10;
+	private ReciboDeHabares recibo;
 	
+	public String getDireccion() {
+		return this.direccion;
+	}
 	
 	public String getNombre() {
 		return nombre;
@@ -41,14 +45,14 @@ public abstract class Empleado {
 	public abstract double sueldoBruto();
 
     public double retenciones() {
-        return this.obraSocial() + this.aporteJubilatorios();
+        return this.getObraSocial() + this.aporteJubilatorios();
     }
     
     public double sueldoNeto() {
         return sueldoBruto() - retenciones();
     }
     
-    public double obraSocial() {
+    public double getObraSocial() {
         return this.calcularPorcentaje(this.porcentajeRetenidoObraSocial, this.sueldoBruto());
     }
     
@@ -76,6 +80,11 @@ public abstract class Empleado {
 		this.fechaNacimiento = fechaNacimiento;
 		this.sueldoBasico = sueldoBasico;
 	}
+	
+	public abstract String desgloceConceptos();
     
+	public void generarRecibo(LocalDate fecha) {
+		this.recibo = new ReciboDeHabares(this, fecha);
+	}
     
 }

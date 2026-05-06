@@ -7,7 +7,7 @@ public class EmpleadoPlantaPermanente extends Empleado {
 
 	private int cantidadHijos;
 	private static final double valorAsignacionPorHijo = 150;
-	private static final double valorPorHijoObraSocial = 20;
+	private static final double retencionPorHijoObraSocial = 20;
 	private int antiguedad;
 	private static final double valorPorAnioAntiguedad = 50;
 	
@@ -30,8 +30,8 @@ public class EmpleadoPlantaPermanente extends Empleado {
 		return valorAsignacionPorHijo;
 	}
 
-	public double getValorPorHijoObraSocial() {
-		return valorPorHijoObraSocial;
+	public double getRetencionPorHijoObraSocial() {
+		return retencionPorHijoObraSocial;
 	}
 
 	public int getAntiguedad() {
@@ -53,7 +53,7 @@ public class EmpleadoPlantaPermanente extends Empleado {
 	
 	public double asignacionPorConyuge() {
 		if ("casado".equals(this.getEstadoCivil()) ||"casada".equals(this.getEstadoCivil())) {
-			return 150;
+			return 100;
 		} else {
 			return 0;
 		}
@@ -62,15 +62,28 @@ public class EmpleadoPlantaPermanente extends Empleado {
 	public double valorTotalAntiguedad() {
 		return this.getValorPorAnioAntiguedad()*this.getAntiguedad();
 	}
+	
 	@Override
-	public double obraSocial() {
-		return super.obraSocial() + this.valorTotalPorHijo();
+	public double getObraSocial() {
+		return super.getObraSocial() + this.retencionTotalPorHijo();
 	}
 	
-	public double valorTotalPorHijo() {
-		return this.getCantidadHijos()*this.getValorPorHijoObraSocial();
+	public double retencionTotalPorHijo() {
+		return this.getCantidadHijos()*this.getRetencionPorHijoObraSocial();
 	}
 	
+	
+	@Override
+	public String desgloceConceptos() {
+		return "Sueldo Bruto: Sueldo Basico " + this.getSueldoBasico() +
+				"\nAsignacion por hijo " + this.asignacionPorHijos() +
+				"\nAsignacion por conguye " + this.asignacionPorConyuge() +
+				"\nAntiguedad " + this.valorTotalAntiguedad() +
+				"\nTotal: " + this.sueldoBruto() +
+				"\nRetenciones aplicadas: Obra Social " + this.getObraSocial() +
+				"\nAporte jubilatorio " + this.aporteJubilatorios();
+				
+	}
 	
 
 }
